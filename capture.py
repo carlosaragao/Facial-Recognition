@@ -16,7 +16,7 @@ while (True):
     for (x, y, l, a) in facesDetectadas:
         cv2.rectangle(imagem, (x, y), (x + l, y + a), (255, 0, 0), 2)
         if cv2.waitKey(1) & 0xFF == ord('q'):
-            imagemFace = cv2.resize(imagemCinza[y:y + a, x:x + l], (largura, altura))
+            imagemFace = cv2.resize(imagemCinza[y: y + a, x: x + l], (largura, altura))
             cv2.imwrite('fotos/pessoa.' + str(id) + '.' + str(amostra) + '.jpg', imagemFace)
             print('[foto ' + str(amostra) + ' capturada com suceso]')
             amostra += 1

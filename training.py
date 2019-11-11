@@ -1,10 +1,9 @@
+import ctypes
 import cv2
 import os
 import numpy as np
 
 eigenface = cv2.face.EigenFaceRecognizer_create(num_components=20, threshold=8000)
-fisherface = cv2.face.FisherFaceRecognizer_create()
-lbph = cv2.face.LBPHFaceRecognizer_create()
 
 def getImagemComId():
     caminhos = [os.path.join('fotos', f) for f in os.listdir('fotos')]
@@ -17,7 +16,7 @@ def getImagemComId():
         #print(id)
         ids.append(id)
         faces.append(imagemFace)
-        #cv2.imshow("Face", imagemFace)
+        # cv2.imshow("Face", imagemFace)
         cv2.waitKey(10)
     return np.array(ids), faces
 
@@ -28,10 +27,4 @@ print('Treinando...')
 eigenface.train(faces, ids)
 eigenface.write('treinamento/classificadorEigen.yml')
 
-fisherface.train(faces, ids)
-fisherface.write('treinamento/classificadorFisher.yml')
-
-lbph.train(faces, ids)
-lbph.write('treinamento/classificadorLBPH.yml')
-
-print('Treinamento Realizado')
+ctypes.windll.user32.MessageBoxW(0, "Treinamento realizado.", "Treinamento", 0)

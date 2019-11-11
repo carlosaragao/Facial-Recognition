@@ -1,11 +1,14 @@
+import ctypes
 import cv2
 
 classificador = cv2.CascadeClassifier("haarcascades/haarcascade_frontalface_default.xml")
 camera = cv2.VideoCapture(0)
 amostra = 1
 numeroAmostras = 25
-id = input('Digite seu identificador: ')
+ctypes.windll.user32.MessageBoxW(0, "Serão capturadas 25 imagens suas para armazenamento, agora digite seu identificador", "Captura", 0)
+id = input('Digite seu iden1tificador: ')
 largura, altura = 220, 220
+ctypes.windll.user32.MessageBoxW(0, 'Aperte a tecla "q" para capturar uma imagem', "Captura", 0)
 print('Capturando as faces...')
 
 while (True):
@@ -27,6 +30,6 @@ while (True):
     if (amostra >= numeroAmostras + 1): 
         break
 
-print('Faces capturadas com sucesso')
+ctypes.windll.user32.MessageBoxW(0, "Faces capturadas com sucesso", "Captura", 0)
 camera.release()
 cv2.destroyAllWindows()

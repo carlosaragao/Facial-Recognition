@@ -4,13 +4,15 @@ def getPessoa(id):
     nome = ''
 
     if id == 1:
-        nome = 'Pessoa 1'
+        nome = 'Carlos'
     elif id == 2:
         nome = 'Pessoa 2'
     elif id == 3:
         nome = 'Pessoa 3'
     elif id == 4:
         nome = 'Pessoa 4'
+    elif id == 5:
+        nome = 'Zuzu'
     
     return nome
 
